@@ -1,0 +1,59 @@
+﻿@model Ecommercemvcapp.Models.Actor
+@{
+    ViewBag.Title = "Update Actor";
+
+}
+<div class="row text">
+    <div class="col-md-8 offset-2">
+        <p>
+            <h5>Update a Actor</h5>
+        </p>
+    </div>
+    <div class="row">
+        <div class="col-md-8 offset-2">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                
+                 <div class="form-group text-center">
+                     <img id="ProfilePictirePreview" style="max-width:100px" />
+                 </div>
+
+                 <div class="form-group">
+                     <label asp-for="ProfileImageUrl" class="control-label"></label>
+                     <input asp-for="ProfileImageUrl" class="form-control" />
+                     <span asp-validation-for="ProfileImageUrl" class="text-danger"></span>
+                 </div>
+                  <div class="form-group">
+                     <label asp-for="FullName" class="control-label"></label>
+                     <input asp-for="FullName" class="form-control" />
+                     <span asp-validation-for="FullName" class="text-danger"></span>
+                 </div>
+                  <div class="form-group">
+                     <label asp-for="Biografy" class="control-label"></label>
+                     <input asp-for="Biografy" class="form-control" />
+                     <span asp-validation-for="Biografy" class="text-danger"></span>
+                 </div>
+                 <div class="form-group">
+                     <input  type="submit" value="Edit" class="btn btn-primary float-end" />
+                     <a asp-action="Index" asp-controller="Actors" class="btn btn-secondary">show All</a>
+
+                 </div>
+            </form>
+        </div>
+       
+
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        $(document).ready(function(){
+            var ouput = document.getElementById('ProfilePictirePreview');
+            ouput.src = $('#ProfileImageUrl').val();
+        })
+        $("#ProfileImageUrl").on("change",function(){
+            var output = document.getElementById('ProfilePictirePreview');
+            output.src = $(this).val();
+        })
+    </script>
+}

@@ -1,0 +1,52 @@
+﻿@using Ecommercemvcapp.Data.ViewModels
+@model RegisterVM
+@{
+    ViewBag.Title = "Register for new user";
+}
+
+<div class="row">
+    <div class="col-md-6 offset-3">
+        <p>
+            <h5>Register for new user</h5>
+        </p>
+        @if(TempData["Error"] != null)
+        {
+            <div class="col-md-12 alert alert-danger">
+            <span><b>Sorry! -- @TempData["Error"]</b></span>
+        </div>
+        }
+       
+        <div class="row">
+        <div class="col-md-8 offset-2">
+            <form asp-action="Register">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="FullName" class="control-lable"></label>
+                    <input asp-for="FullName" class="form-control" />
+                    <span asp-validation-for="FullName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Emailaddress" class="control-lable"></label>
+                    <input asp-for="Emailaddress" class="form-control" />
+                    <span asp-validation-for="Emailaddress" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password" class="control-lable"></label>
+                    <input asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                 <div class="form-group">
+                    <label asp-for="ConfirmPassword" class="control-lable"></label>
+                    <input asp-for="ConfirmPassword" class="form-control" />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                </div>
+                <br />
+                <div class="form-group">
+                    <input type="submit" value="Register" class="btn btn-outline-success float-end"/>
+                    <a asp-controller="Movies" asp-action="Index" class="btn btn-outline-secondary">Cancel</a>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>

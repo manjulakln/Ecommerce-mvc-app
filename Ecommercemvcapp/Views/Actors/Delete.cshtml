@@ -1,0 +1,64 @@
+﻿@model Ecommercemvcapp.Models.Actor
+@{
+    ViewBag.Title = "Delete a Actor";
+
+}
+<div class="row text">
+    <div class="col-md-8 offset-2">
+        <p>
+            <h5>Delete @Model.FullName</h5>
+        </p>
+    </div>
+    <div class="row">
+        <div class="col-md-8 offset-2">
+            
+               
+                
+                 <div class="form-group text-center">
+                     <img id="ProfilePictirePreview" />
+                 </div>
+
+                 <div class="form-group">
+                     <label asp-for="ProfileImageUrl" class="control-label"></label>
+                     <input asp-for="ProfileImageUrl" class="form-control" readonly />
+                     <span asp-validation-for="ProfileImageUrl" class="text-danger"></span>
+                 </div>
+                  <div class="form-group">
+                     <label asp-for="FullName" class="control-label"></label>
+                     <input asp-for="FullName" class="form-control" readonly />
+                     <span asp-validation-for="FullName" class="text-danger"></span>
+                 </div>
+                  <div class="form-group">
+                     <label asp-for="Biografy" class="control-label"></label>
+                     <input asp-for="Biografy" class="form-control" readonly />
+                     <span asp-validation-for="Biografy" class="text-danger"></span>
+                 </div>
+                 <div class="form-group">
+                     <form asp-action ="Delete">
+                         <input type="hidden" asp-for="Id"/>
+                         <input  type="submit" class="btn btn-danger float-end" value="confirm"/>
+                     </form>
+                    
+                     <a asp-action="Index" asp-controller="Actors" class="btn btn-secondary">show All</a>
+
+                 </div>
+           
+        </div>
+       
+
+    </div>
+</div>
+
+@section scripts{
+    <script>
+
+        $(document).ready(function()
+        {
+            var output = document.getElementById('ProfilePictirePreview');
+            output.src = $('#ProfileImageUrl').val();
+
+        })
+        
+    </script>
+}
+
